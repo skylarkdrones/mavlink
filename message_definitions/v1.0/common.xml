@@ -3233,6 +3233,16 @@
       <field type="float" name="p2y" units="m">y position 2 / Longitude 2</field>
       <field type="float" name="p2z" units="m">z position 2 / Altitude 2</field>
     </message>
+    <message id="56" name="PERMISSION_ARTEFACT">
+      <description>The main message to Login</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="char[16]" name="serial_id">The Serial ID of the PLane </field>
+      <field type="int32_t" name="lat" units="degE7">Latitude</field>
+      <field type="int32_t" name="lon" units="degE7">Longitude</field>
+      <field type="uint64_t" name="start_time" units="us">The Starting time in UNIX format</field>
+      <field type="uint64_t" name="end_time" units="us">The ending time in UNIX format</field>
+    </message>
     <message id="61" name="ATTITUDE_QUATERNION_COV">
       <description>The attitude in the aeronautical frame (right-handed, Z-down, X-front, Y-right), expressed as quaternion. Quaternion order is w, x, y, z and a zero rotation would be expressed as (1 0 0 0).</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>
