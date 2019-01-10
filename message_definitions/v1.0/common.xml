@@ -1463,7 +1463,7 @@
         <param index="1">The MAVLink message ID</param>
         <param index="2">The interval between two messages, in microseconds. Set to -1 to disable and 0 to request default rate.</param>
       </entry>
-      <entry value="512" name="MAV_CMD_REQUEST_BOARD_ID">    
+      <entry value="512" name="MAV_CMD_REQUEST_BOARD_ID">
         <description>Get the Board ID from the Pixhawk</description>
         <param index="1">Dont know what to do with params but may come handy in the future.</param>
       </entry>
@@ -4472,6 +4472,11 @@
       <field type="uint8_t" name="target_system">system ID of the target</field>
       <field type="uint8_t" name="target_component">component ID of the target</field>
       <field type="uint16_t" name="sequence">sequence number (must match the one in LOGGING_DATA_ACKED)</field>
+    </message>
+    <message id="351" name="MAV2_TEST">
+      <description>An ack for a LOGGING_DATA_ACKED message</description>
+      <field type="uint8_t" name="target_system">system ID of the target</field>
+      <field type="uint8_t" name="target_component">component ID of the target</field>
     </message>
     <message id="299" name="WIFI_CONFIG_AP">
       <description>Configure AP SSID and Password.</description>
