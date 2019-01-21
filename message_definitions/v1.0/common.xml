@@ -3237,14 +3237,6 @@
       <field type="float" name="p2y" units="m">y position 2 / Longitude 2</field>
       <field type="float" name="p2z" units="m">z position 2 / Altitude 2</field>
     </message>
-    <message id="56" name="PERMISSION_ARTEFACT">
-      <description>The main message to Login</description>
-      <field type="uint8_t" name="target_system">System ID</field>
-      <field type="uint8_t" name="target_component">Component ID</field>
-      <field type="char[24]" name="serial_id">The Serial ID of the PLane </field>
-      <field type="uint64_t" name="start_time">The Starting time in UNIX format</field>
-      <field type="uint64_t" name="end_time" >The ending time in UNIX format</field>
-    </message>
     <message id="57" name="BOARD_ID">
       <description>The main message to Login</description>
       <field type="uint8_t" name="target_system">System ID</field>
@@ -4477,6 +4469,14 @@
       <description>An ack for a LOGGING_DATA_ACKED message</description>
       <field type="uint8_t" name="target_system">system ID of the target</field>
       <field type="uint8_t" name="target_component">component ID of the target</field>
+    </message>
+    <message id="352" name="PERMISSION_ARTEFACT">
+      <description>The main message to Login</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="char[24]" name="serial_id">The Serial ID of the PLane </field>
+      <field type="uint64_t" name="start_time">The Starting time in UNIX format</field>
+      <field type="uint64_t" name="end_time" >The ending time in UNIX format</field>
     </message>
     <message id="299" name="WIFI_CONFIG_AP">
       <description>Configure AP SSID and Password.</description>
