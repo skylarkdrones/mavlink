@@ -3598,6 +3598,10 @@
       <field type="uint8_t" name="mode" enum="MAV_MODE">System mode. Includes arming state.</field>
       <field type="uint64_t" name="flags" display="bitmask">Flags as bitfield, reserved for future use.</field>
     </message>
+    <message id="94" name="ECHO">
+      <description>Report status of a command. Includes feedback whether the command was executed.</description>
+      <field type="char[30]" name="message">The feedback message from the RFM service </field>
+    </message>
     <message id="100" name="OPTICAL_FLOW">
       <description>Optical flow from a flow sensor (e.g. optical mouse sensor)</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>
