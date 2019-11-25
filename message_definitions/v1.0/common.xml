@@ -1463,6 +1463,10 @@
         <param index="1">The MAVLink message ID</param>
         <param index="2">The interval between two messages, in microseconds. Set to -1 to disable and 0 to request default rate.</param>
       </entry>
+      <entry value="512" name="MAV_CMD_REQUEST_BOARD_ID">
+        <description>Get the Board ID from the Pixhawk</description>
+        <param index="1">Dont know what to do with params but may come handy in the future.</param>
+      </entry>
       <entry value="520" name="MAV_CMD_REQUEST_AUTOPILOT_CAPABILITIES">
         <description>Request autopilot capabilities</description>
         <param index="1">1: Request autopilot version</param>
@@ -3233,6 +3237,12 @@
       <field type="float" name="p2y" units="m">y position 2 / Longitude 2</field>
       <field type="float" name="p2z" units="m">z position 2 / Altitude 2</field>
     </message>
+    <message id="57" name="BOARD_ID">
+      <description>The main message to Login</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="char[24]" name="serial_id">The Serial ID1 of the PLane </field>
+    </message>
     <message id="61" name="ATTITUDE_QUATERNION_COV">
       <description>The attitude in the aeronautical frame (right-handed, Z-down, X-front, Y-right), expressed as quaternion. Quaternion order is w, x, y, z and a zero rotation would be expressed as (1 0 0 0).</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>
@@ -3587,6 +3597,10 @@
       <field type="float[16]" name="controls">Control outputs -1 .. 1. Channel assignment depends on the simulated hardware.</field>
       <field type="uint8_t" name="mode" enum="MAV_MODE">System mode. Includes arming state.</field>
       <field type="uint64_t" name="flags" display="bitmask">Flags as bitfield, reserved for future use.</field>
+    </message>
+    <message id="94" name="ECHO">
+      <description>Report status of a command. Includes feedback whether the command was executed.</description>
+      <field type="char[30]" name="message">The feedback message from the RFM service </field>
     </message>
     <message id="100" name="OPTICAL_FLOW">
       <description>Optical flow from a flow sensor (e.g. optical mouse sensor)</description>
@@ -4454,6 +4468,19 @@
       <field type="uint8_t" name="target_system">system ID of the target</field>
       <field type="uint8_t" name="target_component">component ID of the target</field>
       <field type="uint16_t" name="sequence">sequence number (must match the one in LOGGING_DATA_ACKED)</field>
+    </message>
+    <message id="351" name="MAV2_TEST">
+      <description>An ack for a LOGGING_DATA_ACKED message</description>
+      <field type="uint8_t" name="target_system">system ID of the target</field>
+      <field type="uint8_t" name="target_component">component ID of the target</field>
+    </message>
+    <message id="352" name="PERMISSION_ARTEFACT">
+      <description>The main message to Login</description>
+      <field type="uint8_t" name="target_system">System ID</field>
+      <field type="uint8_t" name="target_component">Component ID</field>
+      <field type="char[24]" name="serial_id">The Serial ID of the PLane </field>
+      <field type="uint64_t" name="start_time">The Starting time in UNIX format</field>
+      <field type="uint64_t" name="end_time" >The ending time in UNIX format</field>
     </message>
     <message id="299" name="WIFI_CONFIG_AP">
       <description>Configure AP SSID and Password.</description>
